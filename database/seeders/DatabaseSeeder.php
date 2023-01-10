@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use PhpParser\Node\Expr\Match_;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,8 +15,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
+        \App\Models\User::factory(10)->create();
+        \App\Models\Post::factory(10)->create();
+        \App\Models\Pitch::factory(10)->create();
+        \App\Models\Review::factory(10)->create();
+        \App\Models\Booking::factory(10)->create();
+        \App\Models\SocerMatch::factory(10)->create();
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
