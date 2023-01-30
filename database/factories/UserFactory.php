@@ -31,7 +31,7 @@ class UserFactory extends Factory
             'fullname' => fake()->name(),
             'password' =>Hash::make('12345'), // password
             'phonenumber' => fake()->phoneNumber(),
-            'avatar' => $array_avatar(rand(0,6))
+            'avatar' => $array_avatar[rand(0,6)]
         ];
     }
 

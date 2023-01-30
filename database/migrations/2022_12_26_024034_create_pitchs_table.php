@@ -18,7 +18,7 @@ return new class extends Migration
             $table-> string("namepitch",100)->nullable();
             $table-> string("address",100)->nullable();
             $table-> string("phonenumber",20)->nullable();
-            $table-> string("image",200)->nullable();
+            $table-> LONGTEXT("image")->nullable();
             $table-> string("price_hour",100)->nullable();
             $table->timestamps();
         });

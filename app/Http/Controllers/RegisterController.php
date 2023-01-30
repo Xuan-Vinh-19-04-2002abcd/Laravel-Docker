@@ -32,10 +32,11 @@ class RegisterController extends Controller
 
         $email = $request->input('email');
         $newPassword = $request->input('newpassword');
-       
+
         $user = $this->accountService->forgotPassword($email, $newPassword);
-         $user->password = $newPassword;
-        if($user!=false){
+        
+        if($user!="fail"){
+            $user->password = $newPassword;
             $this->mailService->sendMail($user);
             return response()->json([
                 "message" => 'Change password Successfully',

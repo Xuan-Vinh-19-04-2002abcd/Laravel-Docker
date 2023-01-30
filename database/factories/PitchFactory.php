@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory
  */
 class PitchFactory extends Factory
 {
@@ -43,7 +43,7 @@ class PitchFactory extends Factory
 
         return [
             'namepitch' => $array_name[rand(0,9)],
-            'address' => $array_address[rand(0,10)],
+            'address' => $array_address[rand(0,8)],
             'phonenumber' =>fake()->phoneNumber(),
             'image' => $array_image[rand(0,9)],
             'price_hour' => $array_price[rand(0,2)]

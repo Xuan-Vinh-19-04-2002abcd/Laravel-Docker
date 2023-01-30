@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments("id")->from(1000000);
             $table->unsignedInteger("user_id");
             $table-> string("content",500)->nullable();
-            $table-> string("image",200)->nullable();
+            $table-> LONGTEXT("image")->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 

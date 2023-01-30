@@ -26,7 +26,7 @@ class AccountService implements  IAccountService {
           "https://www.google.com/imgres?imgurl=https%3A%2F%2Fephoto360.com%2Fuploads%2Feffect-data%2Fephoto360.com%2F5e8cee199%2Ft5f4878142e887.jpg&imgrefurl=https%3A%2F%2Fephoto360.com%2Ftao-logo-bong-da-hinh-tron-truc-tuyen-689.html&tbnid=enPrXCEYRPv1zM&vet=10CEoQMyiJAWoXChMIuMLN4Ia8_AIVAAAAAB0AAAAAEAI..i&docid=CJY5LkWy5yeSLM&w=900&h=900&q=avatar%20b%C3%B3ng%20%C4%91%C3%A1%20ph%E1%BB%A7i&ved=0CEoQMyiJAWoXChMIuMLN4Ia8_AIVAAAAAB0AAAAAEAI",
           "https://www.google.com/imgres?imgurl=https%3A%2F%2Fmyleague.vn%2Fuploadfiles%2Fleagues%2Favatar%2F4aeb13c522f8a5069fd06da41c387536.png&imgrefurl=https%3A%2F%2Fmyleague.vn%2Fleague%3Fpage%3D3&tbnid=iaAFLpIv1j7JnM&vet=10CKkBEDMosgFqFwoTCLjCzeCGvPwCFQAAAAAdAAAAABAC..i&docid=d9VGnn301fyYQM&w=250&h=250&q=avatar%20b%C3%B3ng%20%C4%91%C3%A1%20ph%E1%BB%A7i&ved=0CKkBEDMosgFqFwoTCLjCzeCGvPwCFQAAAAAdAAAAABAC"
       ];
-        $randomUrl = $array_avatar(rand(0,6));
+        $randomUrl = $array_avatar[rand(0,6)];
         $data["avatar"] = $randomUrl;
         $password = Hash::make($data['password']);
         $data['password'] = $password;
@@ -39,14 +39,13 @@ class AccountService implements  IAccountService {
       {
 
         $isExit = User::select("*")->where('email', $email)->exists();
-
         if($isExit){
             $newPassword = Hash::make($newPassword);
             User::where('email', $email)->update(['password' => $newPassword]);
             $user =User::where('email', $email)->first();
             return $user;
-        }
-        return false;
+          }
+        return "fail";
 
       }
       public function validateForgotPasswordToken(Request $request)

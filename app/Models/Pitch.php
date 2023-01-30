@@ -9,7 +9,7 @@ class Pitch extends Model
 {
     use HasFactory;
     protected $table = "pitchs";
-    protected $fillable = ['id','namepitch','address','phonenumber','image','price_hour']; 
+    protected $fillable = ['namepitch','address','phonenumber','image','price_hour']; 
 
     public function reviews()
     {

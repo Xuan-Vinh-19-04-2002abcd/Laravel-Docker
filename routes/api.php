@@ -1,8 +1,14 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\PitchController;
+use App\Http\Controllers\PostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,3 +25,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/fogotpassword', [RegisterController::class, 'fogotPassword']);
+Route::post('/login', [AuthController::class,'login']);
+
+
+
+Route::get("/pitchs", [PitchController::class, "getallPitchs"]);
+Route::get("/pitchs/detail", [PitchController::class, "getDetailPitch"]);
+Route::get("/pitchs/search", [PitchController::class, "searchPitch"]);
+
+
+Route::post("/posts", [PostController::class, "createPost"]);
+Route::get("/allposts", [PostController::class, "getAllPosts"]);
+
+
+Route::post("/bookings", [BookingController::class, "createBooking"]);

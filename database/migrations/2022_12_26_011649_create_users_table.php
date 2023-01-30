@@ -19,7 +19,7 @@ return new class extends Migration
             $table-> string("password")->nullable();
             $table-> string("fullname",50)->nullable();
             $table-> string("phonenumber",20)->nullable();
-            $table-> string("avatar")->nullable();
+            $table-> LONGTEXT("avatar")->nullable();
             $table->timestamps();
         });
     }
