@@ -16,8 +16,30 @@ class BookingController extends Controller
         $data = $request->all();
         $result = $this->bookingService->createBooking((array)$data);
         return response()->json([
-            "message" => "Create Successfully"
+            "message" => "Create Successfully",
+            "data" => $result
         ]);
+    }
+    public function getAllBookings()
+    {
+        return response()->json(
+            [
+                "message" => "Successfully",
+                "data" => $this->bookingService->getAllBooking()
+            ]
+        );
+    }
+
+    public function searchBooking(Request $request){
+
+        $textSearch = $request->input("textSearch");
+
+        return response()->json(
+            [
+                "message" => "Search Successfully",
+                "data" => $this->bookingService->searchBooking($textSearch)
+            ]
+        );
     }
 
 }

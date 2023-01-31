@@ -31,7 +31,7 @@ Route::post('/login', [AuthController::class,'login']);
 
 Route::get("/pitchs", [PitchController::class, "getallPitchs"]);
 Route::get("/pitchs/detail", [PitchController::class, "getDetailPitch"]);
-Route::get("/pitchs/search", [PitchController::class, "searchPitch"]);
+Route::post("/pitchs/search", [PitchController::class, "searchPitch"]);
 
 
 Route::post("/posts", [PostController::class, "createPost"]);
@@ -39,3 +39,5 @@ Route::get("/allposts", [PostController::class, "getAllPosts"]);
 
 
 Route::post("/bookings", [BookingController::class, "createBooking"]);
+Route::get("/allbookings", [BookingController::class, "getAllBookings"]);
+Route::post("/bookings/search", [BookingController::class, "searchBooking"]);

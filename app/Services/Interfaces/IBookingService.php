@@ -2,7 +2,9 @@
 namespace App\Services\Interfaces;
 
 interface IBookingService{
-    public function createBooking(array $data): array;
-    public function getAllBooking(): array;
+    public function createBooking(array $data):mixed;
+    public function getAllBooking():mixed;
+
+    public function searchBooking($textsearch): mixed;
   
 }

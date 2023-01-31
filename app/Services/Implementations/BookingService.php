@@ -10,17 +10,22 @@ class BookingService implements IBookingService {
     )
     {}
 
-    public function createBooking(array $data): array
+    public function createBooking(array $data): mixed
     {
 
         $abc = $this->bookingRepository->create($data);
 
 
-        return [];
+        return $this->bookingRepository->getInfoBooking($data['pitch_id']);
     }
-    public function getAllBooking(): array
+    public function getAllBooking(): mixed
     {
-        return $this->bookingRepository->all($toArray = true);
+        return $this->bookingRepository->getAllBooking();
+
+
     }
-        
+    public function searchBooking($textsearch):mixed
+    {
+        return $this->bookingRepository->searchBooking($textsearch);
+    }
 }
